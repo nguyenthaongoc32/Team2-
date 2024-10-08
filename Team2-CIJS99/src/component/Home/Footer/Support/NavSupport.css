@@ -1,0 +1,90 @@
+.nav-support{
+    display: grid;
+    align-items: center;
+    background-image: url('https://merch.riotgames.com/assets/arcade_riven_ahri.svg');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.nav-support-main{
+    display: grid;
+}
+.nav-support-title-container{
+    display: grid;
+    align-items: center;
+    padding-left: 5rem;
+    padding-top: 100px;
+}
+.title-h1{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 3rem;
+    font-family: "Nova Oval", system-ui;
+ 
+}
+.nav-support-background{
+    height: 12.5rem;
+    background-image: url(/public/img/pattern-support.svg);
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.nav-support-teemo-background{
+    height: 9.375rem;
+    background-image: url(/public/img/teemo.png);
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.nav-support-hero-container{
+    padding: 2rem;
+    background-color: red;
+    overflow-x: scroll;
+
+}
+.nav-support-hero-tag{
+    display: flex;
+    gap: 1rem;
+}
+.hero-tags-a{
+    text-decoration: none;
+    color: white;
+    list-style: none;
+}
+.hero-tags-a :hover{
+    color: black;
+    background-color: rgb(255, 232, 232);
+}
+.hero-tags-a.active{
+    color: black;
+    background-color: white;
+}
+.hero-tag-span{
+    border: 1px solid white;
+    background-color: red;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: capitalize;
+    white-space: nowrap;
+    min-width: 17.25rem;
+    min-height: 4rem;
+    font-size: 1rem;
+    display: inline-flex;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+    padding:0.25rem , 0.5rem ;
+    border-radius:0.125rem ;
+    text-align: center;
+}
+.hero-tag-span:hover{
+    background-color: white;
+}
+.hero-tag-span.active{
+    background-color: white;
+    color: black;
+}
+.hero-tag-span:focus{
+    outline: none;
+    background-color: #f5f5f5;
+}

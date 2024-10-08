@@ -7,7 +7,7 @@ const Footer = () => {
       <div className='footer-background'>
         <div className='footer-container'>
           <div className='footer-logo'>
-            <img src="./img/logo.png" alt="logo" style={{ width: "80px" }} />
+           <Link to='/'><img src="./img/logo.png" alt="logo" style={{ width: "80px" }} /></Link> 
           </div>
           <div className='footer-shop'>
             <span className='footer-shop-name'>Shop</span>
@@ -33,13 +33,13 @@ const Footer = () => {
                 <Link className='footer-support-link' to="/orderStatus">ORDER STATUS</Link>
               </li>
               <li className='footer-support-li'>
-                <Link className='footer-support-link' to="/gift">GIFT CARD BALANCE</Link>
+                <Link className='footer-support-link' to="/giftCardBalance">GIFT CARD BALANCE</Link>
               </li>
               <li className='footer-support-li'>
-                <Link className='footer-support-link' to="/shipping">SHIPPING INFORMATION</Link>
+                <Link className='footer-support-link' to="/shippingInformation">SHIPPING INFORMATION</Link>
               </li>
               <li className='footer-support-li'>
-                <Link className='footer-support-link' to="/collectability">COLLECTABILITY GUIDE</Link>
+                <Link className='footer-support-link' to="/collectabilityGuide">COLLECTABILITY GUIDE</Link>
               </li>
               <li className='footer-support-li'>
                 <Link className='footer-support-link' to="/accessibility"> ACCESSIBILITY</Link>

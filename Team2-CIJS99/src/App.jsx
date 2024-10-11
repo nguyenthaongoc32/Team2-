@@ -11,11 +11,13 @@ import CollectabilityGuide from './component/Home/Footer/Support/CollectabilityG
 import GiftCardBalance from './component/Home/Footer/Support/GiftCardBalance';
 import OrderStatus from './component/Home/Footer/Support/OrderStatus';
 import ShippingInformation from './component/Home/Footer/Support/ShippingInformation';
+import SignUp from '../src/component/Auth/SignUp/SignUp';
 function App() {
 
   return (
     <>
-      <div className='Footer'>
+    <SignUp/>
+      {/* <div className='Footer'>
         <Routes>
           <Route path='/accessories' element={<Accessories/>}></Route>
           <Route path='/apparel' element={<Apparel/>}></Route>
@@ -28,7 +30,7 @@ function App() {
           <Route path='/shippingInformation' element={<ShippingInformation/>}></Route>
         </Routes>
         <Footer/>
-      </div>
+      </div> */}
     </>
   )
 }

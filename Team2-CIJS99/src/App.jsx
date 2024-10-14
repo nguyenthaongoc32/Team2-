@@ -16,7 +16,6 @@ function App() {
 
   return (
     <>
-    <SignUp/>
       {/* <div className='Footer'>
         <Routes>
           <Route path='/accessories' element={<Accessories/>}></Route>

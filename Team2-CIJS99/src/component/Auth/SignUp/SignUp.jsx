@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { auth, googleProvider, createUserWithEmailAndPassword,signInWithPopup,signOut } from '../firebaseConfig';
 function SignUp(){
     const [email, setEmail] = useState('');
+    const [userName , setUserName] = useState('');
     const [password , setPassword] = useState('');
     const[confirmPassword , setConfirmPassword] = useState('');
     const[error, setError] = useState('');
@@ -38,8 +39,11 @@ function SignUp(){
         .then((userCredential) => {
             const user = userCredential.user;
             setSuccess('Sign up successful!');
-            navigate('/',{state:{userEmail:user.email}});
+            navigate('/',{state:{userEmail:user.email,userName:userName}});
         }).catch((error) =>{
+            if (error.code ==='auth/email-already-in-use'){
+                setError('This email is already in use')
+            }
             setError(error.message);
         })
     };
@@ -47,12 +51,8 @@ function SignUp(){
         signInWithPopup(auth,googleProvider)
         .then((result) =>{
             setSuccess('Sign up with Google successful!');
-            const userLocal = {
-                email : response.user.email,
-            };
-            localStorage.setItem("userLocal", JSON.stringify(userLocal));
             const user = result.user;
-        navigate('/', {state:{userEmail:user.email}});
+        navigate('/', {state:{userEmail:user.email, }});
             })
             .catch((error) =>{
                 setError(error.message);
@@ -74,23 +74,28 @@ function SignUp(){
                             <label className='signup-label'> Email</label>
                         </div>
                         <div className='signup-inputbox'>
-                            <input type="text" placeholder='' id='user-signup'
+                            <input type="text" placeholder='' id='userName-signup'
                              className='signup-field' 
+                             onChange={(e) => setUserName(e.target.value)}
                              required />
                             <label className='signup-label'>User Name</label>
                         </div>
                         <div className='signup-inputbox'>
-                            <input type="text" placeholder='' className='signup-field'
+                            <input type="password" placeholder='' className='signup-field'
                             onChange={(e) => setPassword(e.target.value)} required />
                             <label className='signup-label'>Password</label>
                         </div>
                         <div className='signup-inputbox'>
-                            <input type="text" placeholder='' className='signup-field'
+                            <input type="password" placeholder='' className='signup-field'
                             onChange={(e) => setConfirmPassword(e.target.value)} required />
                             <label className='signup-label'>Confirm Password</label>
                         </div>
+
+
                         {error && <p style={{color:"red"}}>{error}</p>}
                         {success && <p style={{color:"green"}}>{success}</p>}
+
+                        
                         <button className='btn-signup' type='submit'>SignUp</button>
                         
                         <div className='choose'>

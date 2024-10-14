@@ -12,10 +12,12 @@ import GiftCardBalance from './component/Home/Footer/Support/GiftCardBalance';
 import OrderStatus from './component/Home/Footer/Support/OrderStatus';
 import ShippingInformation from './component/Home/Footer/Support/ShippingInformation';
 import SignUp from '../src/component/Auth/SignUp/SignUp';
+import Login from '../src/component/Auth/Login/Login';
 function App() {
 
   return (
     <>
+    <Login/>
       {/* <div className='Footer'>
         <Routes>
           <Route path='/accessories' element={<Accessories/>}></Route>

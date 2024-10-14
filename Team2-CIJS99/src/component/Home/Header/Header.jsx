@@ -6,25 +6,25 @@ const Header = () => {
         <div className='sticky-top'>
             <div className='sticky-top bg-dark d-flex justify-content-between '>
                 <div className='logo_container'>
-                    <Link class="navbar-brand" href="#">
+                    <Link class="navbar-brand"to='/'>
                         <img src='public/img/logo.png' alt='logo' style={{ width: '30%' }} />
                     </Link>
                 </div>
                 <ul style={{ width: "400px" }} className='d-flex justify-content-between '>
                     <li style={{ marginLeft: "10px" }} className="mt-1 p-2">
-                        <Link className="text-decoration-none text-light" href='/Home'>SHOP ALL</Link></li>
+                        <Link className="text-decoration-none text-light" to='/'>SHOP ALL</Link></li>
                     <li className="nav-item dropdown mt-1 p-2">
                         <Link className="nav-link dropdown-toggle text-decoration-none text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             CATEGORIES
                         </Link>
                         <ul className="dropdown-menu">
-                            <li><Link className="dropdown-item" href="#">League of Legends</Link></li>
+                            <li><Link className="dropdown-item" to='/'>League of Legends</Link></li>
                             <li><hr className="dropdown-divider" /></li>
-                            <li><Link className="dropdown-item" href="#">VALORANT</Link></li>
+                            <li><Link className="dropdown-item" to='/'>VALORANT</Link></li>
                             <li><hr className="dropdown-divider" /></li>
-                            <li><Link className="dropdown-item" href="#">Teamfight Tactics</Link></li>
+                            <li><Link className="dropdown-item" to='/'>Teamfight Tactics</Link></li>
                             <li><hr className="dropdown-divider" /></li>
-                            <li><Link className="dropdown-item" href="#">Arcane</Link></li>
+                            <li><Link className="dropdown-item" to='/'>Arcane</Link></li>
                         </ul>
                     </li>
                 </ul>
@@ -34,7 +34,7 @@ const Header = () => {
                 </form>
                 <div className="riotbar-account-container">
                     <div className="riotbar-account-link-wrapper">
-                        <Link className=" riotbar-account-action " >
+                        <Link className=" riotbar-account-action " to='/'>
                             Sign In
                         </Link>
                     </div>

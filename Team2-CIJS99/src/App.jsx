@@ -13,11 +13,12 @@ import OrderStatus from './component/Home/Footer/Support/OrderStatus';
 import ShippingInformation from './component/Home/Footer/Support/ShippingInformation';
 import SignUp from '../src/component/Auth/SignUp/SignUp';
 import Login from '../src/component/Auth/Login/Login';
+import Header from './component/Home/Header/Header';
 function App() {
 
   return (
     <>
-    <Login/>
+    <Header/>
       {/* <div className='Footer'>
         <Routes>
           <Route path='/accessories' element={<Accessories/>}></Route>

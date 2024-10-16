@@ -21,7 +21,7 @@ const Header = (props) => {
             className="d-flex justify-content-between "
           >
             <li style={{ marginLeft: "10px" }} className="mt-1 p-2">
-              <Link className="text-decoration-none text-light" href="/Home">
+              <Link className="text-decoration-none text-light" to="/shopAll">
                 SHOP ALL
               </Link>
             </li>

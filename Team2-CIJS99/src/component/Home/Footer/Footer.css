@@ -55,7 +55,7 @@
 }
 .footer-support{
     display: flex;
-    margin-top: -235px;
+    margin-top: -275px;
     margin-left: 600px;
     padding-bottom: 20px;
     border:1px soild #444;
@@ -69,7 +69,7 @@
     list-style: none;
     padding: 0;
     margin-top: 60px;
-    margin-left: -60px;
+    margin-left: -70px;
 }
 .footer-support-li{
     margin-bottom: 20px;
@@ -86,7 +86,7 @@
 }
 .footer-contactUs{
     display: flex;
-    margin-top: -235px;
+    margin-top: -275px;
     margin-left: 1000px;
     padding-bottom: 20px;
     border:1px soild #444;
@@ -117,7 +117,7 @@
     font-size: 20px ;
     font-weight: 500 ;
     color: white;
-    margin-left: -80px;
+    margin-left: -95px;
 }
 .contactUs-inp-name,
 .contactUs-inp-email,
@@ -135,7 +135,7 @@
     font-weight:400 ;
     line-height: 1.25;
     padding: 1rem;
-    margin-left: -80px;
+    margin-left: -95px;
 }
 .contactUs-fields-tracking , 
 .contactUs-fields-subject,
@@ -201,7 +201,7 @@
     display: grid;
     width: 100%;
     align-items: center;
-    gap:4rem;
+    gap:1rem;
 }
 .contact-link{
     text-decoration: none;

@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from "axios";
+
 import Footer from './component/Home/Footer/Footer';
 import './App.css'
 import { Route, Routes } from 'react-router-dom';
@@ -14,11 +16,92 @@ import ShippingInformation from './component/Home/Footer/Support/ShippingInforma
 import SignUp from '../src/component/Auth/SignUp/SignUp';
 import Login from '../src/component/Auth/Login/Login';
 import Header from './component/Home/Header/Header';
+import HomePage from './component/Home/HomePage';
 function App() {
+  const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
+  const [fetchProductsInProgress, setFetchProductsInProgress] = useState(false);
+  const [fetchProductsInError, setFetchProductsInError] = useState(null);
+
+  const handleFetchProducts = async () => {
+    setFetchProductsInProgress(true);
+    setFetchProductsInError(null);
+    try {
+      const apiResponse = await axios.get(
+        `https://66ffe87c4da5bd2375526dd4.mockapi.io/api/data`
+      );
+      const productsData = apiResponse.data;
+      setProducts(productsData);
+    } catch (error) {
+      console.log("Something went wrongs:", error);
+      setFetchProductsInError(error.response.data.message);
+    } finally {
+      setFetchProductsInProgress(false);
+    }
+  };
+
+  useEffect(() => {
+    handleFetchProducts();
+  }, []);
+
+  const handleAddToCart = (productId) => {
+    // Step 1: Tìm kiếm SP mà người dùng muốn thêm
+    const addingProduct = products.find((product) => product.id === productId);
+
+    // Step 2: Kiểm tra xem sản phẩm đã tồn tại
+    // trong GIỎ HÀNG hay chưa?
+    // a. TRUE -> update quantity
+    // b. FALSE -> create new cartItem => push to cart
+
+    const addingProductIndexInCart = cart.findIndex(
+      (product) => product.data.id === productId
+    );
+
+    const isExistProductInCart = addingProductIndexInCart !== -1;
+
+    const newCart = [...cart];
+
+    if (isExistProductInCart) {
+      // a. TRUE -> update quantity
+      newCart[addingProductIndexInCart].quantity += 1;
+    } else {
+      // b. FALSE -> create new cartItem => push to cart
+      const newCartItem = {
+        data: addingProduct,
+        quantity: 1,
+      };
+      newCart.push(newCartItem);
+    }
+
+    setCart(newCart);
+  };
+
+  const updateCartQuantity = (productId, value) => {
+    const updatingCartIndex = cart.findIndex(
+      (cartItem) => cartItem.data.id === productId
+    );
+
+    const newCart = [...cart];
+
+    newCart[updatingCartIndex].quantity += value;
+
+    setCart(newCart);
+  };
+
+  const handleDeleteProductFromCart = (productId) => {
+    const filterCart = cart.filter(
+      (cartItem) => cartItem.data.id !== productId
+    );
+    setCart(filterCart);
+  };
+
+  const handleOrder = (cart) => {
+    setCart([]);
+  };
   return (
     <>
-    <Header/>
+    <HomePage />
       {/* <div className='Footer'>
         <Routes>
           <Route path='/accessories' element={<Accessories/>}></Route>

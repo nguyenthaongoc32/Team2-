@@ -108,6 +108,10 @@ function App() {
             path="/products/:id"
             element={<ProductDetail handleAddToCart={handleAddToCart} />}
           />
+          <Route
+            path="/checkout"
+            element={<Checkout cart={cart} handleOrder={handleOrder} />}
+          />
       </Routes>
     </div>
     

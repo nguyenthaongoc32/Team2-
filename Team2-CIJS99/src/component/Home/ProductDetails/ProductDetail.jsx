@@ -16,7 +16,7 @@ const ProductDetail = (props) => {
     setFetchProductInError(null);
     try {
       const apiResponse = await axios.get(
-        `https://66ffe87c4da5bd2375526dd4.mockapi.io/api/data/${1}`
+        `https://66fcd0b0c3a184a84d18118c.mockapi.io/api/data/${id}`
       );
       const productData = apiResponse.data;
       setProduct(productData);
@@ -37,7 +37,6 @@ const ProductDetail = (props) => {
 
   return (
     <div className="d-flex flex-column align-items-center">
-
       <div className="row">
         <div className="col">
           <img style={{ width: "100%" }} src={mainImg} alt="mainImg" />
@@ -60,12 +59,12 @@ const ProductDetail = (props) => {
             </ol>
           </nav>
           <h1>{title}</h1>
-          <h5>{price}</h5>
+          <h5>${price}</h5>
           <div className="d-flex column-gap-3">
             <button
               className="btn"
               style={{ backgroundColor: "#B48D36", fontWeight: "bold" }}
-              onClick={() => handleAddToCart(product)}
+              onClick={() => handleAddToCart(id)}
             >
               ADD TO CART
             </button>

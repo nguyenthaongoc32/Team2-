@@ -7,7 +7,7 @@ const Footer = () => {
       <div className='footer-background'>
         <div className='footer-container'>
           <div className='footer-logo'>
-           <Link to='/'><img src="./img/logo.png" alt="logo" style={{ width: "80px" }} /></Link> 
+           <Link to='/'><img src="/img/logo.png" alt="logo" style={{ width: "80px" }} /></Link> 
           </div>
           <div className='footer-shop'>
             <span className='footer-shop-name'>Shop</span>

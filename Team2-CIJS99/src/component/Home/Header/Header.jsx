@@ -10,7 +10,7 @@ const Header = (props) => {
           <div className="logo_container">
             <Link className="navbar-brand" href="#">
               <img
-                src="public/img/logo.png"
+                src="/img/logo.png"
                 alt="logo"
                 style={{ width: "30%" }}
               />

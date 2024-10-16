@@ -65,3 +65,6 @@ padding: 16px;
     padding: 10px;
     margin-left:13rem;
 }
+.product-cart:hover{
+    background-color: red;
+}

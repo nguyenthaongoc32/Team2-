@@ -17,10 +17,16 @@ import SignUp from '../src/component/Auth/SignUp/SignUp';
 import Login from '../src/component/Auth/Login/Login';
 import Header from './component/Home/Header/Header';
 import HomePage from './component/Home/HomePage';
+import ProductDetail from './component/Home/ProductDetails/ProductDetail';
+import Checkout from './component/Home/Checkout/CheckOut';
+import CartModal from './component/Home/CartModal/CartModal';
+import ProductList from './component/Home/ProductList/ProductList';
+
+
 function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-
+  const [completedOrder, setCompletedOrder] = useState(false);
   const [fetchProductsInProgress, setFetchProductsInProgress] = useState(false);
   const [fetchProductsInError, setFetchProductsInError] = useState(null);
 
@@ -29,7 +35,7 @@ function App() {
     setFetchProductsInError(null);
     try {
       const apiResponse = await axios.get(
-        `https://66ffe87c4da5bd2375526dd4.mockapi.io/api/data`
+        `https://66fcd0b0c3a184a84d18118c.mockapi.io/api/data`
       );
       const productsData = apiResponse.data;
       setProducts(productsData);
@@ -46,6 +52,7 @@ function App() {
   }, []);
 
   const handleAddToCart = (productId) => {
+    console.log("adding", productId)
     // Step 1: Tìm kiếm SP mà người dùng muốn thêm
     const addingProduct = products.find((product) => product.id === productId);
 
@@ -95,42 +102,66 @@ function App() {
     );
     setCart(filterCart);
   };
-
-  const handleOrder = (cart) => {
+  const handleOrder = () => {
     setCart([]);
   };
+
   return (
     <>
-    <div className='Header'>
       <Header totalCartItems={cart.length} />
-      <Routes>
+      <main>
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage
+              products = {products}
+              handleAddToCart={handleAddToCart} />}
+          />
           <Route
             path="/products/:id"
             element={<ProductDetail handleAddToCart={handleAddToCart} />}
           />
           <Route
             path="/checkout"
-            element={<Checkout cart={cart} handleOrder={handleOrder} />}
+            element={
+              <Checkout
+                cart={cart}
+                handleOrder={handleOrder}
+                completedOrder={completedOrder}
+                setCompletedOrder={setCompletedOrder}
+              />
+            }
           />
-      </Routes>
-    </div>
-    
-      {/* <div className='Footer'>
-        <Routes>
-          <Route path='/accessories' element={<Accessories/>}></Route>
-          <Route path='/apparel' element={<Apparel/>}></Route>
-          <Route path='/art' element={<Art/>}></Route>
-          <Route path='/collectibles' element={<Collectibies/>}></Route>
-          <Route path='/accessibility' element={<Accessibility/>}></Route>
-          <Route path='/collectabilityGuide' element={<CollectabilityGuide/>}></Route>
-          <Route path='/giftCardBalance' element={<GiftCardBalance/>}></Route>
-          <Route path='/orderStatus' element={<OrderStatus/>}></Route>
-          <Route path='/shippingInformation' element={<ShippingInformation/>}></Route>
         </Routes>
-        <Footer/>
-      </div> */}
+        <CartModal
+          cart={cart}
+          updateCartQuantity={updateCartQuantity}
+          handleDeleteProductFromCart={handleDeleteProductFromCart}
+          completedOrder={completedOrder}
+          setCompletedOrder={setCompletedOrder}
+        />
+      </main>
+      <div className="Footer">
+        <Routes>
+          <Route path="/accessories" element={<Accessories />}></Route>
+          <Route path="/apparel" element={<Apparel />}></Route>
+          <Route path="/art" element={<Art />}></Route>
+          <Route path="/collectibles" element={<Collectibies />}></Route>
+          <Route path="/accessibility" element={<Accessibility />}></Route>
+          <Route
+            path="/collectabilityGuide"
+            element={<CollectabilityGuide />}
+          ></Route>
+          <Route path="/giftCardBalance" element={<GiftCardBalance />}></Route>
+          <Route path="/orderStatus" element={<OrderStatus />}></Route>
+          <Route
+            path="/shippingInformation"
+            element={<ShippingInformation />}
+          ></Route>
+        </Routes>
+        <Footer />
+      </div>
     </>
-  )
+  );
 }
-
 export default App

@@ -1,0 +1,70 @@
+.shipping-title-wrapper{
+    display: grid;
+    padding: 0px 2rem;
+}
+.shipping-title-h2{
+    padding:2rem 0 ;
+    text-transform: uppercase;
+    font-size: 2.375rem ;
+    font-weight: 700;
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.shipping-content-wrapper{
+    display: inline-block;
+    padding: 0px 2rem ;
+}
+.shipping-main{
+    margin-bottom: 4rem;
+    margin-left: 5rem;
+    padding: 20px 9rem ;
+}
+table{
+    display: table;
+    border-collapse: separate;
+    text-indent: initial;
+    unicode-bidi: isolate;
+    border-spacing: 3px;
+    border-color: gray;
+    width: 100%;
+    margin: 0 auto;
+}
+tbody{
+    display: table-row-group;
+    vertical-align: middle;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+
+tr{
+    all: unset;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+th{
+    padding-bottom:0.5rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    line-height: 1.125rem;
+    text-transform: uppercase;
+}
+td{
+    line-height: 2;
+    vertical-align: top;
+    display: table-cell;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+}
+.shipping-p{
+    margin-left: -4rem;
+    margin-top: 1rem;
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    color: red;
+}

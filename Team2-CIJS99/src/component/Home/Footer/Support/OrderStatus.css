@@ -1,0 +1,55 @@
+.support-title-h2{
+    padding:2rem 0 ;
+    text-transform: uppercase;
+    font-size: 2.375rem ;
+    font-weight: 700;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.support-form{
+    margin-bottom: 8rem;
+}
+.support-form-input{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.order-number,.last-name,.email{
+    margin-left: 12rem;
+}
+.order-number-p,.last-name-p,.email-p{
+    font-size: 20px;
+    font-weight: 200;
+}
+.order-number-inp,.last-name-inp,.email-inp{
+    width: 100%;
+    padding: 1rem;
+    background-color: #f7f7f7;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    border: none;
+}
+.order-button{
+    position: relative;
+    display: inline-flex;
+    min-width: 15rem;
+    height: 3.2rem;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 0.02;
+    line-height: 1.125;
+    outline-offset: 2px;
+    padding-inline: 1rem;
+    text-align: center;
+    text-decoration: none;
+    background-color: darkgrey;
+    margin-left:40rem ;
+    margin-top: 5rem;
+    border-radius: 5px;
+}
+.order-button:hover{
+    color: white;
+    background-color: red;
+}

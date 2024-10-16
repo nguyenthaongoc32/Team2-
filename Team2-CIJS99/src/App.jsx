@@ -101,7 +101,20 @@ function App() {
   };
   return (
     <>
-    <HomePage />
+    <div className='Header'>
+      <Header totalCartItems={cart.length} />
+      <Routes>
+          <Route
+            path="/products/:id"
+            element={<ProductDetail handleAddToCart={handleAddToCart} />}
+          />
+          <Route
+            path="/checkout"
+            element={<Checkout cart={cart} handleOrder={handleOrder} />}
+          />
+      </Routes>
+    </div>
+    
       {/* <div className='Footer'>
         <Routes>
           <Route path='/accessories' element={<Accessories/>}></Route>

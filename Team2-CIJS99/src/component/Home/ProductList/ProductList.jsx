@@ -51,7 +51,9 @@ const ProductList = ({ onAddToCart }) => {
       <div className="product-list-container">
         {products.length > 0 ? (
           products.map(product => (
+            <Link className='product-link' to={`/products/${product.id}`} key={product.id}>
             <ProductCard key={product.id} product={product} handleAddToCart={onAddToCart} />
+            </Link>
           ))
         ) : (
           <p>No products available.</p>

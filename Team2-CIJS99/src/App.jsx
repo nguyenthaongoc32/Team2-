@@ -17,10 +17,11 @@ import SignUp from '../src/component/Auth/SignUp/SignUp';
 import Login from '../src/component/Auth/Login/Login';
 import Header from './component/Home/Header/Header';
 import HomePage from './component/Home/HomePage';
-import ProductDetail from './component/Home/ProductDetails/ProductDetail';
-import Checkout from './component/Home/Checkout/CheckOut';
-import CartModal from './component/Home/CartModal/CartModal';
+import ProductDetail from './component/pages/ProductDetails/ProductDetail';
+import Checkout from './component/pages/Checkout/CheckOut';
+import CartModal from './component/pages/CartModal/CartModal';
 import ProductList from './component/Home/ProductList/ProductList';
+import ShopAll from './component/ShopAll/ShopAll';
 
 
 function App() {
@@ -111,6 +112,8 @@ function App() {
       <Header totalCartItems={cart.length} />
       <main>
         <Routes>
+          <Route path='/shopAll'
+          element={<ShopAll products={products}/>}/>
           <Route
             path="/"
             element={<HomePage

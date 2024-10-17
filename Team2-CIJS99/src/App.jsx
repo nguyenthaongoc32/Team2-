@@ -185,7 +185,7 @@ function App() {
           element={<Logout/>}/> 
 
 <Route
-            path="/"
+            path="/home"
             element={<HomePage handleAddToCart={handleAddToCart}
             products={products} />}
           />

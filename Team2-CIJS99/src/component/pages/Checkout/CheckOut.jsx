@@ -15,7 +15,7 @@ const Checkout = (props) => {
   let billBodyElement2 = cart.map((cartItem, index) => {
     const { data, quantity } = cartItem;
     const { id, title, price } = data;
-    const totalPricePerProduct = quantity * price;
+    const totalPricePerProduct = Math.round(quantity * price);
 
     return (
       <tr key={id}>

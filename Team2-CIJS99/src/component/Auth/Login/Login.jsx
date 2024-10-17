@@ -17,25 +17,22 @@ function Login ()  {
         setError('');
         setSuccess('');
         setIsSubmit(true)
-
-
-        signInWithEmailAndPassword(auth,email,password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            setSuccess('Login Successful!');
-            navigate('/', {state:{userEmail:user.email}})
-        })
-        .catch((error) =>{
-            if (error.code ==='auth/wrong-password'){
-                setError('Invalid password. Please try again.');
-            } else if (error.code === 'auth/user-not-found'){
-                setError('No account found with this email .');
-            } else{
-                setError(error.message)
-            };
-        })
     }
-   
+    signInWithEmailAndPassword(auth,email,password)
+    .then((userCredential) => {
+        const user = userCredential.user;
+        setSuccess('Login Successful!');
+        navigate('/', {state:{userEmail:user.email}})
+    })
+    .catch((error) =>{
+        if (error.code ==='auth/wrong-password'){
+            setError('Invalid password. Please try again.');
+        } else if (error.code === 'auth/user-not-found'){
+            setError('No account found with this email .');
+        } else{
+            setError(error.message)
+        };
+    })
     const handleLoginGoogle = () =>{
         signInWithPopup(auth,googleProvider)
         .then((result) =>{
@@ -75,7 +72,7 @@ function Login ()  {
                             <span className='span-choose'>Hoặc</span>
                         </div>
                             <div className='social-btn-login'>
-                                <button className='btn-gg' onClick={handleLoginGoogle} type="button">
+                                <button className='btn-gg' onClick={handleLoginGoogle} type='button'>
                                     <img  src='/img/gmail.jpg' className="gmail" alt="logo" />
                                     Sign up with Google
                                 </button>

@@ -25,14 +25,14 @@ function SignUp(){
         setError('');
         setSuccess('');
         if (password !== confirmPassword){
-            setError('Password and confirm password do not match');
+            alert('Password and confirm password do not match');
             return;
         };
         if (!validateEmail(email)){
-            setError('Invalid email');
+            alert('Invalid email');
         };
         if(!validatePassword(password)){
-            setError('Password must be at least 6 characters including at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 character');
+            alert('Password must be at least 6 characters including at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 character');
             return;
         }
         createUserWithEmailAndPassword(auth,email,password)

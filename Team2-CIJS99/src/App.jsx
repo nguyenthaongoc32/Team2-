@@ -22,6 +22,11 @@ import Checkout from './component/pages/Checkout/CheckOut';
 import CartModal from './component/pages/CartModal/CartModal';
 import ProductList from './component/Home/ProductList/ProductList';
 import ShopAll from './component/ShopAll/ShopAll';
+import League from './component/Categories/League';
+import Valorant from './component/Categories/Valorant';
+import Teamfight from './component/Categories/Teamfight';
+import Arcane from './component/Categories/Arcane';
+import Logout from './component/Auth/Logout/Logout';
 
 
 function App() {
@@ -107,13 +112,46 @@ function App() {
     setCart([]);
   };
 
+
   return (
     <>
-      <Header totalCartItems={cart.length} />
+    <div className='Header'>
+      <Header totalCartItems={cart.length}  />
       <main>
         <Routes>
-          <Route path='/shopAll'
-          element={<ShopAll products={products}/>}/>
+          <Route 
+          path='/shopAll'
+          element={<ShopAll 
+          products={products}/>}/>
+
+          <Route 
+          path='/league'
+          element={<League products={products}/>}/>
+
+          <Route 
+          path='/valorant'
+          element={<Valorant products={products}/>}/>
+
+          <Route 
+          path='/teamfight'
+          element={<Teamfight products={products}/>}/>
+
+          <Route 
+          path='/arcane'
+          element={<Arcane products={products}/>}/>
+
+          <Route 
+          path='/signup'
+          element={<SignUp/>}/>
+
+        <Route 
+          path='/login'
+          element={<Login/>}/>
+
+          <Route 
+          path='/logout'
+          element={<Logout/>}/> 
+
           <Route
             path="/"
             element={<HomePage
@@ -124,6 +162,7 @@ function App() {
             path="/products/:id"
             element={<ProductDetail handleAddToCart={handleAddToCart} />}
           />
+
           <Route
             path="/checkout"
             element={
@@ -144,6 +183,10 @@ function App() {
           setCompletedOrder={setCompletedOrder}
         />
       </main>
+      </div>
+
+
+      
       <div className="Footer">
         <Routes>
           <Route path="/accessories" element={<Accessories />}></Route>

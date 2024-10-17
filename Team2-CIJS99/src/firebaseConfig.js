@@ -7,7 +7,7 @@ import {getAuth , GoogleAuthProvider, createUserWithEmailAndPassword, signInWith
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCUDnrXceyxpASayy_UdCdhMBjQgjTFIDY",
-  authDomain: "login-riotgames.firebaseapp.com",
+  authDomain:  "https://clothes-git-categories-thao-ngocs-projects.vercel.app",
   projectId: "login-riotgames",
   storageBucket: "login-riotgames.appspot.com",
   messagingSenderId: "842209388239",

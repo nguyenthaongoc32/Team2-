@@ -22,7 +22,7 @@ function Login ()  {
     .then((userCredential) => {
         const user = userCredential.user;
         setSuccess('Login Successful!');
-        navigate('/', {state:{userEmail:user.email}})
+        navigate('/home', {state:{userEmail:user.email}})
     })
     .catch((error) =>{
         if (error.code ==='auth/wrong-password'){
@@ -38,7 +38,7 @@ function Login ()  {
         .then((result) =>{
             setSuccess('Login with Google successful!');
             const user = result.user;
-        navigate('/', {state:{userEmail:user.email, }});
+        navigate('/home', {state:{userEmail:user.email, }});
             })
             .catch((error) =>{
                 setError(error.message);

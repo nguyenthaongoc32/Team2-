@@ -38,11 +38,11 @@ function SignUp(){
         createUserWithEmailAndPassword(auth,email,password)
         .then((userCredential) => {
             const user = userCredential.user;
-            setSuccess('Sign up successful!');
-            navigate('/login');
+            alert('Sign up successful!');
+            navigate('/');
         }).catch((error) =>{
             if (error.code ==='auth/email-already-in-use'){
-                setError('This email is already in use')
+                alert('This email is already in use')
             }
             setError(error.message);
         })
@@ -50,7 +50,7 @@ function SignUp(){
     const handleSignUpGoogle = () =>{
         signInWithPopup(auth,googleProvider)
         .then((result) =>{
-            setSuccess('Sign up with Google successful!');
+            alert('Sign up with Google successful!');
             const user = result.user;
         navigate('/', {state:{userUseName:user.userName, }});
             })

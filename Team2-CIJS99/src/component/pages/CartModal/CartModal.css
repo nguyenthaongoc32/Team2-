@@ -1,0 +1,67 @@
+.table{
+    width: 100%;
+    table-layout: fixed;
+}
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2){
+    width: 10%;
+}
+.table th:nth-child(3),
+.table td:nth-child(3){
+ text-align: start;
+ white-space: normal;
+ word-wrap: break-word;
+ padding: 20px 5px;
+ max-width: 100px;
+
+}
+.table th:nth-child(4),
+.table td:nth-child(4){
+    text-align: start;
+    white-space: normal;
+    word-wrap: break-word;
+    padding: 20px 5px;
+    max-width: 100px;
+}
+.table th:nth-child(5),
+.table td:nth-child(5){
+    text-align: start;
+    white-space: normal;
+    word-wrap: break-word;
+    padding: 20px 5px;
+    max-width: 100px;
+}
+.table th:nth-child(6),
+.table td:nth-child(6){
+    text-align: start;
+    white-space: normal;
+    word-wrap: break-word;
+    padding: 20px 10px;
+    max-width: 100px;
+}
+.table th:nth-child(7),
+.table td:nth-child(7){
+    text-align: start;
+    white-space: normal;
+    word-wrap: break-word;
+    padding: 20px 5px;
+    max-width: 100px;
+}
+.tbody-products img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    margin-top: -5px;
+}
+
+.d-flex.alighn-items-center.gap2{
+    justify-content: center;
+}
+.btn-primary{
+    padding: 5px 10px;
+}

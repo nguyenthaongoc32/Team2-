@@ -7,18 +7,9 @@ padding: 16px;
     gap: 30px;
    
 }
-.product-link{
- text-decoration: none;
- color: black;
-
-}
-.product-link:hover{
-    text-decoration:line-through;
-    color: black;
-}
 .product-card{
     background-color: rgb(235, 235, 235);
-    flex: 1 1 calc(33.33% - 33.33%);
+    flex: 3 3 calc(33.33% - 33.33%);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 16px;
@@ -63,8 +54,5 @@ padding: 16px;
     color: white;
     border: none;
     padding: 10px;
-    margin-left:13rem;
-}
-.product-cart:hover{
-    background-color: red;
+    margin-left:15rem;
 }

@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "../ProductList/ProductList.css";
 import { Link } from "react-router-dom";
 const ProductCard = (props) => {
-  const {product, handleAddToCart} = props;
+  const { product, handleAddToCart } = props;
   const { id, title, price, image = {} } = product;
   const { mainImg, othersImg = [] } = image;
   const sliderSettings = {
@@ -15,6 +15,7 @@ const ProductCard = (props) => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
   return (
     <div className="product-card">
       <Link to={`/products/${id}`}>
@@ -39,7 +40,7 @@ const ProductCard = (props) => {
       <h4>{title}</h4>
       <p>${price}</p>
 
-      <button className="product-cart"  onClick={() => handleAddToCart(id)}>
+      <button className="product-cart" onClick={() => handleAddToCart(id)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="22"

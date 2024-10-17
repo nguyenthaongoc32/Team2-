@@ -1,8 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import '../CartModal/CartModal.css'
 const CartModal = (props) => {
-  const { cart = [], updateCartQuantity, handleDeleteProductFromCart } = props;
+  const {
+    cart = [],
+    updateCartQuantity,
+    handleDeleteProductFromCart,
+    completedOrder,
+    setCompletedOrder,
+  } = props;
   const isEmpty = cart.length === 0;
 
   let cartBodyElement = null;
@@ -18,7 +24,7 @@ const CartModal = (props) => {
       const { data, quantity } = cartItem;
       const { id, title, price, image = {} } = data;
       const { mainImg, othersImg = [] } = image;
-      const totalPricePerProduct = quantity * price;
+      const totalPricePerProduct =Math.round( quantity * price);
 
       const isDisabledDecreaseButton = quantity === 1;
 
@@ -29,7 +35,7 @@ const CartModal = (props) => {
             <img src={mainImg} width={30} />
           </td>
           <td>{title}</td>
-          <td>{price}</td>
+          <td>${Math.round(price)}</td>
           <td>
             <div className="d-flex align-items-center gap-2">
               <button
@@ -48,7 +54,7 @@ const CartModal = (props) => {
               </button>
             </div>
           </td>
-          <td>{totalPricePerProduct}</td>
+          <td>${Math.round(totalPricePerProduct)}</td>
           <td>
             <button
               className="btn btn-danger"
@@ -90,20 +96,20 @@ const CartModal = (props) => {
             />
           </div>
 
-          <div className="modal-body">
-            <table className="table">
-              <thead>
+          <div className="modal-body ">
+            <table className="table table-image">
+              <thead >
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Image</th>
-                  <th scope="col">Product</th>
+                  <th scope="col" >Product</th>
                   <th scope="col">Price</th>
                   <th scope="col">Quantity</th>
                   <th scope="col">Total</th>
                   <th scope="col">...</th>
                 </tr>
               </thead>
-              <tbody>
+             <tbody className="tbody-products">
                 {cartBodyElement}
                 <tr>
                   <th>SUBTOTAL</th>
@@ -112,18 +118,19 @@ const CartModal = (props) => {
                   <td></td>
                   <td></td>
                   <td>
-                    <b>{totalPrice}</b>
+                    <b>${Math.round(totalPrice)}</b>
                   </td>
                   <td></td>
                 </tr>
-              </tbody>
+              </tbody> 
+   
             </table>
           </div>
 
           <div className="modal-footer">
             <Link to="/checkout">
               <button
-                type="button"
+                onClick={() => setCompletedOrder(false)}
                 className="btn btn-danger"
                 data-bs-dismiss="modal"
               >

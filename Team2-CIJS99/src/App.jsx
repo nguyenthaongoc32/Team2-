@@ -27,14 +27,21 @@ import Valorant from './component/Categories/Valorant';
 import Teamfight from './component/Categories/Teamfight';
 import Arcane from './component/Categories/Arcane';
 import Logout from './component/Auth/Logout/Logout';
-
+import SearchPage from './component/pages/SearchPage/SearchPage';
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [productsFilter, setProductsFilter] = useState([]);
   const [cart, setCart] = useState([]);
   const [completedOrder, setCompletedOrder] = useState(false);
   const [fetchProductsInProgress, setFetchProductsInProgress] = useState(false);
   const [fetchProductsInError, setFetchProductsInError] = useState(null);
+
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+  };
 
   const handleFetchProducts = async () => {
     setFetchProductsInProgress(true);
@@ -55,10 +62,10 @@ function App() {
 
   useEffect(() => {
     handleFetchProducts();
+    console.log("Products", products);
   }, []);
 
   const handleAddToCart = (productId) => {
-    console.log("adding", productId)
     // Step 1: Tìm kiếm SP mà người dùng muốn thêm
     const addingProduct = products.find((product) => product.id === productId);
 
@@ -112,11 +119,31 @@ function App() {
     setCart([]);
   };
 
+  const handleSearchProduct = () => {
+    if (searchValue === "") {
+      setProductsFilter([]);
+      return;
+    }
+    const filterBySearch = products.filter((product) => {
+      if (product.title.toLowerCase().includes(searchValue.toLowerCase())) {
+        return product;
+      }
+    });
+    setProductsFilter(filterBySearch);
+    console.log("setProductsFilter", setProductsFilter);
+  };
 
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    handleSearchProduct();
+  };
   return (
     <>
     <div className='Header'>
-      <Header totalCartItems={cart.length}  />
+      <Header totalCartItems={cart.length}
+       handleChange={handleChange}
+       onSubmit={handleSubmitForm}
+       value={searchValue}  />
       <main>
         <Routes>
           <Route 
@@ -152,12 +179,22 @@ function App() {
           path='/logout'
           element={<Logout/>}/> 
 
-          <Route
+<Route
             path="/"
-            element={<HomePage
-              products = {products}
-              handleAddToCart={handleAddToCart} />}
+            element={<HomePage handleAddToCart={handleAddToCart} />}
           />
+
+<Route
+            path="/searchpage"
+            element={
+              <SearchPage
+                handleAddToCart={handleAddToCart}
+                productsFilter={productsFilter}
+              />
+            }
+          />
+
+
           <Route
             path="/products/:id"
             element={<ProductDetail handleAddToCart={handleAddToCart} />}

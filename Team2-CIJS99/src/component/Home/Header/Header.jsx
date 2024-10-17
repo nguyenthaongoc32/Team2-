@@ -5,7 +5,8 @@ import { auth } from '../../../firebaseConfig';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import '../Header/Header.css';
 
-const Header = ({ totalCartItems }) => {
+const Header = (props) => {
+  const { totalCartItems, handleChange, onSubmit, searchValue } = props;
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
@@ -20,6 +21,7 @@ const Header = ({ totalCartItems }) => {
      auth.signOut();
      setCurrentUser(null)
   };
+
     return (
       <div className="sticky-top">
         <div className="sticky-top bg-dark d-flex justify-content-between ">
@@ -84,19 +86,22 @@ const Header = ({ totalCartItems }) => {
               </ul>
             </li>
           </ul>
-          <form className="d-flex " role="search">
+          <form className="d-flex " role="search" onSubmit={onSubmit}>
             <input
               className="inp-src form-control me-5 mt-3 p-6"
               type="search"
               placeholder="Search"
               aria-label="Search"
+              name="searchValue"
+            value={searchValue}
+            onChange={handleChange}
             />
             <button
-              className="btn-src btn btn-outline-success  me-5 mt-3 p-6"
-              type="submit"
-            >
-              Search
-            </button>
+            className="btn-src btn btn-outline-success  me-5 mt-3 p-6"
+            type="submit"
+          >
+            <Link to="./searchpage">Search</Link>
+          </button>
           </form>
           <div className="riotbar-account-container">
             <div className="riotbar-account-link-wrapper">

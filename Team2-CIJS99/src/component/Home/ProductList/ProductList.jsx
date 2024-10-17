@@ -23,8 +23,9 @@ const ProductList = ({ handleAddToCart }) => {
   };
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  const params = useParams();
-  const { id } = params || {};
+
+  // const params = useParams();
+  // const { id } = params || {};
 
   const handleFetchProducts = async () => {
     try {

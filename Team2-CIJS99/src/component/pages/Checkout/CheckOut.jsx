@@ -3,7 +3,7 @@ import "./Checkout.css";
 import { Link } from "react-router-dom";
 
 const Checkout = (props) => {
-  const { cart = [], handleOrder } = props;
+  const { cart = [], handleOrder, completedOrder, setCompletedOrder } = props;
   const isEmpty = cart.length === 0;
   const totalPrice = isEmpty
     ? 0
@@ -15,18 +15,16 @@ const Checkout = (props) => {
   let billBodyElement2 = cart.map((cartItem, index) => {
     const { data, quantity } = cartItem;
     const { id, title, price } = data;
-    const totalPricePerProduct = Math.round(quantity * price);
+    const totalPricePerProduct = quantity * price;
 
     return (
       <tr key={id}>
         <td>{title}</td>
         <td>{quantity}</td>
-        <td>{Math.round(totalPricePerProduct)}</td>
+        <td>${Math.round(totalPricePerProduct)}</td>
       </tr>
     );
   });
-  let noted =
-    "Make sure your billing details are correct before placing order.";
 
   if (isEmpty) {
     billBodyElement = (
@@ -42,7 +40,7 @@ const Checkout = (props) => {
           <tr>
             <td></td>
             <td></td>
-            <td>{Math.round(totalPrice)}</td>
+            <td>${Math.round(totalPrice)}</td>
           </tr>
         </tbody>
       </table>
@@ -62,7 +60,7 @@ const Checkout = (props) => {
           <tr>
             <td></td>
             <td></td>
-            <td>{Math.round(totalPrice)}</td>
+            <td>${Math.round(totalPrice)}</td>
           </tr>
         </tbody>
       </table>
@@ -72,15 +70,22 @@ const Checkout = (props) => {
   const moModal = () => {
     handleOrder();
     billBodyElement = null;
-    noted =
-      "Your order is on delivery. Please contact us if you require assistance or wish to make alternate arrangements.";
+    setCompletedOrder(true);
   };
 
   return (
     <div className="checkout">
       <div className="path">
-        <Link to="/">HOME/</Link>
-        <Link to="/checkout">CHECKOUT</Link>
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="breadcrumb-item active" aria-current="page">
+              Checkout
+            </li>
+          </ol>
+        </nav>
       </div>
       <div className="info">
         <div className="label">Billing details</div>
@@ -111,10 +116,12 @@ const Checkout = (props) => {
           <br />
         </form>
         <div className="label">Your order</div>
-        {billBodyElement}
+        {!completedOrder && billBodyElement}
         <div className="cash">
           <div className="note" id="note">
-            {noted}
+            {completedOrder
+              ? "Your order is on delivery. Please contact us if you require assistance or wish to make alternate arrangements."
+              : "Make sure your billing details are correct before placing order."}
           </div>
           <button
             class="btn"

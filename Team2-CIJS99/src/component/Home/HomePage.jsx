@@ -4,16 +4,14 @@ import Footer from '../Home/Footer/Footer'
 import Baner from './Banner/Baner';
 import ProductList from './ProductList/ProductList';
 const HomePage = (props) => {
-  const handleAddToCart = props;
-  const products = props;
+  const { handleAddToCart } = props;
   return (
-  <>
-  <Baner/>
-  <ProductList 
-  handleAddToCart={handleAddToCart}/>
+    <>
+      <Baner />
+      <ProductList handleAddToCart={handleAddToCart} />
+    </>
+  );
+};
 
-  </>
-  )
-}
 
 export default HomePage

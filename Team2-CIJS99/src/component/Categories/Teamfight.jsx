@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductCard from '../Home/ProductCard/ProductCard'
 
-const Teamfight = ({products}) => {
+const Teamfight = ({products,handleAddToCart}) => {
     const responsive = {
         superLargeDesktop: {
           breakpoint: { max: 4000, min: 3000 },
@@ -29,6 +29,7 @@ const Teamfight = ({products}) => {
           <ProductCard
             key={product.id}
             product={product}
+            handleAddToCart={handleAddToCart}
           />
         )
       ) : (

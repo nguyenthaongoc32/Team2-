@@ -1,6 +1,6 @@
 import React from 'react'
 import ProductCard from '../Home/ProductCard/ProductCard';
-const Valorant = ({products}) => {
+const Valorant = ({products,handleAddToCart}) => {
     const responsive = {
         superLargeDesktop: {
           breakpoint: { max: 4000, min: 3000 },
@@ -28,6 +28,7 @@ const Valorant = ({products}) => {
           <ProductCard
             key={product.id}
             product={product}
+            handleAddToCart={handleAddToCart}
           />
         )
       ) : (

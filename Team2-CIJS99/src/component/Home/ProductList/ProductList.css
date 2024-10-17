@@ -9,7 +9,6 @@ padding: 16px;
 }
 .product-card{
     background-color: rgb(235, 235, 235);
-    flex: 3 3 calc(33.33% - 33.33%);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 16px;
@@ -30,6 +29,7 @@ padding: 16px;
     width: 100%;
     height: auto;
     border-radius: 8px;
+    height: 250px;
 }
 .other-images-slider {
     margin-top: 10px;

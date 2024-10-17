@@ -21,7 +21,7 @@ const Checkout = (props) => {
       <tr key={id}>
         <td>{title}</td>
         <td>{quantity}</td>
-        <td>{totalPricePerProduct}</td>
+        <td>{Math.round(totalPricePerProduct)}</td>
       </tr>
     );
   });
@@ -42,7 +42,7 @@ const Checkout = (props) => {
           <tr>
             <td></td>
             <td></td>
-            <td>{totalPrice}</td>
+            <td>{Math.round(totalPrice)}</td>
           </tr>
         </tbody>
       </table>
@@ -62,7 +62,7 @@ const Checkout = (props) => {
           <tr>
             <td></td>
             <td></td>
-            <td>{totalPrice}</td>
+            <td>{Math.round(totalPrice)}</td>
           </tr>
         </tbody>
       </table>

@@ -30,7 +30,7 @@ const Header = (props) => {
               <img
                 src="/img/logo.png"
                 alt="logo"
-                style={{ width: "30%" }}
+                style={{ width: "40%" }}
               />
             </Link>
           </div>
@@ -38,12 +38,12 @@ const Header = (props) => {
             style={{ width: "400px" }}
             className="d-flex justify-content-between "
           >
-            <li style={{ marginLeft: "10px" }} className="mt-1 p-2">
+            <li style={{ marginLeft: "10px" }} className="mt-3 p-2">
               <Link className="text-decoration-none text-light" to="/shopAll">
                 SHOP ALL
               </Link>
             </li>
-            <li className="nav-item dropdown mt-1 p-2">
+            <li className="nav-item dropdown mt-3 p-2">
               <Link
                 className="nav-link dropdown-toggle text-decoration-none text-light"
                 href="#"
@@ -55,7 +55,7 @@ const Header = (props) => {
               </Link>
               <ul className="dropdown-menu">
                 <li>
-                  <Link className="dropdown-item" to="/league">
+                  <Link className="dropdown-item" to="/League of Legends">
                     League of Legends
                   </Link>
                 </li>
@@ -63,7 +63,7 @@ const Header = (props) => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="valorant">
+                  <Link className="dropdown-item" to="/valorant">
                     VALORANT
                   </Link>
                 </li>
@@ -71,7 +71,7 @@ const Header = (props) => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="teamfight">
+                  <Link className="dropdown-item" to="/Teamfight Tactics">
                     Teamfight Tactics
                   </Link>
                 </li>
@@ -79,7 +79,7 @@ const Header = (props) => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="arcane">
+                  <Link className="dropdown-item" to="/arcane">
                     Arcane
                   </Link>
                 </li>
@@ -114,7 +114,7 @@ const Header = (props) => {
               </Link>
               </> 
               ) : (
-              <Link className=" riotbar-account-action " to='/signup'>Sign  In</Link>
+              <Link className=" riotbar-account-action " to='/login'>Sign  In</Link>
               )}
             </div>
           </div>

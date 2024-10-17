@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ProductCard from '../Home/ProductCard/ProductCard';
-const League = ({products}) => {
+const League = ({products,handleAddToCart}) => {
     const responsive = {
         superLargeDesktop: {
           breakpoint: { max: 4000, min: 3000 },
@@ -28,6 +28,7 @@ const League = ({products}) => {
           <ProductCard
             key={product.id}
             product={product}
+            handleAddToCart={handleAddToCart}
           />
         )
       ) : (

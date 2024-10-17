@@ -1,6 +1,6 @@
 import React from 'react'
 import ProductCard from '../Home/ProductCard/ProductCard'
-const Arcane = ({products}) => {
+const Arcane = ({products,handleAddToCart}) => {
     const responsive = {
         superLargeDesktop: {
           breakpoint: { max: 4000, min: 3000 },
@@ -28,6 +28,7 @@ const Arcane = ({products}) => {
           <ProductCard
             key={product.id}
             product={product}
+            handleAddToCart={handleAddToCart}
           />
         )
       ) : (

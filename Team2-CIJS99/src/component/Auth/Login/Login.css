@@ -118,19 +118,11 @@
     border: 2px solid #ffffff;
     border-radius: 30px;
     outline: none;    
-   
 }
 #user{
     margin-bottom: 10px;
 }
 .login-label{
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    transition: 0.2s;
-}
-.login-field:focus ~ .login-label, 
-.login-field:valid .login-label{
     position: absolute;
     top: -10px;
     left: 20px;
@@ -139,7 +131,9 @@
     border-radius: 30px;
     color: #000000;
     padding: 0 10px;
+    z-index: 1;
 }
+
 .span-choose{
     align-items: center;
     display: flex;

@@ -105,7 +105,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    margin:20px 0;
+    margin:30px 0;
 }
 
 .signup-field{
@@ -125,14 +125,6 @@
 }
 .signup-label{
     position: absolute;
-    top: 15px;
-    left: 20px;
-    transition: 0.2s;
-    color: #d0d0d0;
-}
-.signup-field:focus ~ .signup-label, 
-.signup-field:valid .signup-label{
-    position: absolute;
     top: -10px;
     left: 20px;
     font-size: 14px;
@@ -141,6 +133,7 @@
     color: #000000;
     padding: 0 10px;
 }
+
 .gmail{
     width: 20px;
     height: 20px;

@@ -1,86 +1,135 @@
-
 div.checkout {
-    max-width: 1366px;
-    margin: auto;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  div.path {
-    margin: 2.5rem 2rem;
-  }
-  
-  div.path a {
-    font-size: 0.937rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: #555555;
-  }
-  
-  div.info {
-    margin: 2.5rem 2rem;
-  }
-  
-  div.info div.label {
-    margin: 2.5rem 0 1rem 0;
-    color: black;
-    font-size: 2.6rem;
-    font-weight: bold;
-  }
-  
-  div.info form label {
-    font-size: 1rem;
-    color: #555555;
-    margin-top: 1.5rem;
-  }
-  
-  div.info form input {
-    width: 50%;
-    height: 3rem;
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid #555555;
-  }
-  
-  div.info table {
-    width: 100%;
-    font-size: 1rem;
-  }
-  
-  div.info table th,
-  td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  div.info div.cash {
-    margin-top: 2.5rem;
-    padding: 1.562rem;
-    border: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  
-  div.info div.cash div.note {
-    padding: 2rem 1rem;
-    margin-bottom: 1.562rem;
-    width: 100%;
-    height: 4.825rem;
-    border: 1px solid #ddd;
-    font-size: 1rem;
-    color: #555555;
-    background-color: #ebebeb;
-  }
-  
-  div.info div.cash button {
-    width: 10.375rem;
-    height: 3rem;
-    background-color: #105989;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
+  max-width: 1366px;
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div.path {
+  margin: 2.5rem 2rem;
+}
+
+div.path a {
+  font-size: 0.937rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #555555;
+}
+
+div.info {
+  margin: 2.5rem 2rem;
+}
+
+div.info div.label {
+  margin: 2.5rem 0 1rem 0;
+  color: black;
+  font-size: 2.6rem;
+  font-weight: bold;
+}
+
+div.info form label {
+  font-size: 1rem;
+  color: #555555;
+  margin-top: 1.5rem;
+}
+
+div.info form input {
+  width: 50%;
+  height: 3rem;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #555555;
+}
+
+div.info table {
+  width: 100%;
+  font-size: 1rem;
+}
+
+div.info table th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+div.info div.cash {
+  margin-top: 2.5rem;
+  padding: 1.562rem;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+div.info div.cash div.note {
+  padding: 2rem 1rem;
+  margin-bottom: 1.562rem;
+  width: 100%;
+  height: 4.825rem;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  color: #555555;
+  background-color: #ebebeb;
+}
+
+div.info div.cash button {
+  width: 10.375rem;
+  height: 3rem;
+  background-color: #105989;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.bill{
+  width: 100%;
+  table-layout: auto;
+
+}
+.bill th, .bill td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+
+}
+
+.bill th:nth-child(3){
+ text-align: start;
+ white-space: normal;
+ word-wrap: break-word;
+ padding: 20px 20px ;
+ 
+}
+.bill td:nth-child(3){
+  text-align: start;
+  white-space: normal;
+  word-wrap: break-word;
+  padding: 20px 35px ;
+}
+.bill th:nth-child(2){
+  text-align: start;
+  white-space: normal;
+  word-wrap: break-word;
+  padding: 20px 20px ;
+ }
+ .bill td:nth-child(2){
+   text-align: start;
+   white-space: normal;
+   word-wrap: break-word;
+   padding: 20px 55px ;
+   margin-left: -50px;
+ }
+ .bill th:nth-child(1){
+  text-align: start;
+  white-space: normal;
+  word-wrap: break-word;
+  padding: 20px 10px ;
+ }
+ .bill td:nth-child(1){
+   text-align: start;
+   white-space: normal;
+   word-wrap: break-word;
+   padding: 20px 10px ;
+   max-width: 150px;
+ }

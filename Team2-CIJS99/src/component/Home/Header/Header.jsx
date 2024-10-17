@@ -1,14 +1,30 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import '../Header/Header.css'
-const Header = (props) => {
-    
-    const { totalCartItems } = props;
+import React, {useState, useEffect} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import '../Header/Header.css';
+import { auth } from '../../../firebaseConfig';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import '../Header/Header.css';
+
+const Header = ({ totalCartItems }) => {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+    });
+
+    return () => unsubscribe(); 
+  }, []);
+
+  const handleLogout =  () => {
+     auth.signOut();
+     setCurrentUser(null)
+  };
     return (
       <div className="sticky-top">
         <div className="sticky-top bg-dark d-flex justify-content-between ">
           <div className="logo_container">
-            <Link className="navbar-brand" href="#">
+            <Link className="navbar-brand" to="/">
               <img
                 src="/img/logo.png"
                 alt="logo"
@@ -37,7 +53,7 @@ const Header = (props) => {
               </Link>
               <ul className="dropdown-menu">
                 <li>
-                  <Link className="dropdown-item" href="#">
+                  <Link className="dropdown-item" to="/league">
                     League of Legends
                   </Link>
                 </li>
@@ -45,7 +61,7 @@ const Header = (props) => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <Link className="dropdown-item" href="#">
+                  <Link className="dropdown-item" to="valorant">
                     VALORANT
                   </Link>
                 </li>
@@ -53,7 +69,7 @@ const Header = (props) => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <Link className="dropdown-item" href="#">
+                  <Link className="dropdown-item" to="teamfight">
                     Teamfight Tactics
                   </Link>
                 </li>
@@ -61,7 +77,7 @@ const Header = (props) => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <Link className="dropdown-item" href="#">
+                  <Link className="dropdown-item" to="arcane">
                     Arcane
                   </Link>
                 </li>
@@ -84,7 +100,17 @@ const Header = (props) => {
           </form>
           <div className="riotbar-account-container">
             <div className="riotbar-account-link-wrapper">
-              <Link className=" riotbar-account-action ">Sign In</Link>
+
+              {currentUser ? (<>
+              <span className='text-light mt-3 me-2'>{currentUser.displayName || currentUser.email}</span>
+
+              <Link className='riot-account-action-logout' to='/' onClick={handleLogout}>
+              <img src='/img/logout.png' alt='logout' className='logout-img'></img>
+              </Link>
+              </> 
+              ) : (
+              <Link className=" riotbar-account-action " to='/signup'>Sign  In</Link>
+              )}
             </div>
           </div>
           <div className="riotbar-nav-cart-plugin">

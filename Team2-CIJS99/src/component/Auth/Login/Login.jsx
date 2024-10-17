@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../Login/Login.css';
 import { Link , useNavigate} from 'react-router-dom';
-import { auth, googleProvider, signInWithEmailAndPassword,signInWithPopup,signOut } from '../firebaseConfig';
+import { auth, googleProvider, signInWithEmailAndPassword,signInWithPopup} from '../../../firebaseConfig';
 
 
 function Login ()  {
@@ -80,7 +80,7 @@ function Login ()  {
                             <div className='register'>
                                 <p className='register-p'>
                                     Don't have an account ?
-                                    <Link className='register-link' to='/signUp'>Sign Up</Link>
+                                    <Link className='register-link' to='/signup'>Sign Up</Link>
                                 </p>
                             </div>
                         </form>

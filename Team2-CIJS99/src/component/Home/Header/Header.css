@@ -33,6 +33,10 @@
     color: white;
     text-decoration: none;
   }
+ .logout-img{
+  width: 50px;
+  color: #fff;
+ }
   .cart-button {
     display: inline-block;
     min-width: 3rem;

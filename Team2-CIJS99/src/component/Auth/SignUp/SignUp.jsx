@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../SignUp/SignUp.css'
-import { useNavigate } from 'react-router-dom';
-import { auth, googleProvider, createUserWithEmailAndPassword,signInWithPopup,signOut } from '../firebaseConfig';
+import { useNavigate , Link} from 'react-router-dom';
+import { auth, googleProvider, createUserWithEmailAndPassword,signInWithPopup } from '../../../firebaseConfig';
 function SignUp(){
     const [email, setEmail] = useState('');
     const [userName , setUserName] = useState('');
@@ -39,7 +39,7 @@ function SignUp(){
         .then((userCredential) => {
             const user = userCredential.user;
             setSuccess('Sign up successful!');
-            navigate('/',{state:{userEmail:user.email,userName:userName}});
+            navigate('/login');
         }).catch((error) =>{
             if (error.code ==='auth/email-already-in-use'){
                 setError('This email is already in use')
@@ -52,7 +52,7 @@ function SignUp(){
         .then((result) =>{
             setSuccess('Sign up with Google successful!');
             const user = result.user;
-        navigate('/', {state:{userEmail:user.email, }});
+        navigate('/', {state:{userUseName:user.userName, }});
             })
             .catch((error) =>{
                 setError(error.message);
@@ -110,7 +110,7 @@ function SignUp(){
                             <div className='login'>
                             <p className='login-p'>
                                 Have an account?
-                                {/* <Link className='login-link' to='/login'>LogIn</Link> */}
+                                <Link className='login-link' to='/login'>LogIn</Link>
                             </p>
                         </div>
                     </form>

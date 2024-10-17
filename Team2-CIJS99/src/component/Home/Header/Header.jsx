@@ -26,7 +26,7 @@ const Header = (props) => {
       <div className="sticky-top">
         <div className="sticky-top bg-dark d-flex justify-content-between ">
           <div className="logo_container">
-            <Link className="navbar-brand" to="/home">
+            <Link className="navbar-brand" to="/">
               <img
                 src="/img/logo.png"
                 alt="logo"

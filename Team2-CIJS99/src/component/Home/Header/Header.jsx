@@ -55,7 +55,7 @@ const Header = (props) => {
               </Link>
               <ul className="dropdown-menu">
                 <li>
-                  <Link className="dropdown-item" to="/league">
+                  <Link className="dropdown-item" to="/League of Legends">
                     League of Legends
                   </Link>
                 </li>
@@ -63,7 +63,7 @@ const Header = (props) => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="valorant">
+                  <Link className="dropdown-item" to="/valorant">
                     VALORANT
                   </Link>
                 </li>
@@ -71,7 +71,7 @@ const Header = (props) => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="teamfight">
+                  <Link className="dropdown-item" to="/Teamfight Tactics">
                     Teamfight Tactics
                   </Link>
                 </li>
@@ -79,7 +79,7 @@ const Header = (props) => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="arcane">
+                  <Link className="dropdown-item" to="/arcane">
                     Arcane
                   </Link>
                 </li>

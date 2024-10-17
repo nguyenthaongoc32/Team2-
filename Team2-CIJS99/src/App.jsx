@@ -152,7 +152,7 @@ function App() {
           products={products}/>}/>
 
           <Route 
-          path='/league'
+          path='/League of Legends'
           element={<League products={products}/>}/>
 
           <Route 
@@ -160,7 +160,7 @@ function App() {
           element={<Valorant products={products}/>}/>
 
           <Route 
-          path='/teamfight'
+          path='/Teamfight Tactics'
           element={<Teamfight products={products}/>}/>
 
           <Route 

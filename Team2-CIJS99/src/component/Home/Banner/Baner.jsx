@@ -4,7 +4,7 @@ import '../Banner/Banner.css';
 import { Link , useNavigate} from 'react-router-dom';
 function Baner() {
   return (
-    <div>
+    <div style={{marginTop:"1px"}}>
        <Carousel data-bs-theme="dark" >
       <Carousel.Item>
         <img

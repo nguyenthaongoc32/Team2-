@@ -1,7 +1,8 @@
 import React from 'react';
 import ProductCard from '../Home/ProductCard/ProductCard';
-const ShopAll = ({products}) => {
+const ShopAll = ({products, handleAddToCart}) => {
     const responsive = {
+     
         superLargeDesktop: {
           breakpoint: { max: 4000, min: 3000 },
           items: 7,
@@ -28,6 +29,7 @@ const ShopAll = ({products}) => {
           <ProductCard
             key={product.id}
             product={product}
+            handleAddToCart={handleAddToCart}
           />
         ))
       ) : (

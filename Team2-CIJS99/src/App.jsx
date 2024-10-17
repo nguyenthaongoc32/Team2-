@@ -149,23 +149,28 @@ function App() {
           <Route 
           path='/shopAll'
           element={<ShopAll 
-          products={products}/>}/>
+          products={products}
+          handleAddToCart={handleAddToCart}/>}/>
 
           <Route 
           path='/League of Legends'
-          element={<League products={products}/>}/>
+          element={<League products={products} 
+          handleAddToCart={handleAddToCart}/>}/>
 
           <Route 
           path='/valorant'
-          element={<Valorant products={products}/>}/>
+          element={<Valorant products={products}
+          handleAddToCart={handleAddToCart}/>}/>
 
           <Route 
           path='/Teamfight Tactics'
-          element={<Teamfight products={products}/>}/>
+          element={<Teamfight products={products}
+          handleAddToCart={handleAddToCart}/>}/>
 
           <Route 
           path='/arcane'
-          element={<Arcane products={products}/>}/>
+          element={<Arcane products={products}
+          handleAddToCart={handleAddToCart}/>}/>
 
           <Route 
           path='/signup'
@@ -181,7 +186,8 @@ function App() {
 
 <Route
             path="/"
-            element={<HomePage handleAddToCart={handleAddToCart} />}
+            element={<HomePage handleAddToCart={handleAddToCart}
+            products={products} />}
           />
 
 <Route

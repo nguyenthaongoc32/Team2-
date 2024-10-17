@@ -21,14 +21,15 @@ function Login ()  {
     signInWithEmailAndPassword(auth,email,password)
     .then((userCredential) => {
         const user = userCredential.user;
-        setSuccess('Login Successful!');
+
+        alert('Login Successful!');
         navigate('/', {state:{userEmail:user.email}})
     })
     .catch((error) =>{
         if (error.code ==='auth/wrong-password'){
-            setError('Invalid password. Please try again.');
+            alert('Invalid password. Please try again.');
         } else if (error.code === 'auth/user-not-found'){
-            setError('No account found with this email .');
+            alert('No account found with this email .');
         } else{
             setError(error.message)
         };
@@ -36,7 +37,7 @@ function Login ()  {
     const handleLoginGoogle = () =>{
         signInWithPopup(auth,googleProvider)
         .then((result) =>{
-            setSuccess('Login with Google successful!');
+            alert('Login with Google successful!');
             const user = result.user;
         navigate('/', {state:{userEmail:user.email, }});
             })

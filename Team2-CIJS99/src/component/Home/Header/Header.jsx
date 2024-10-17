@@ -114,7 +114,7 @@ const Header = (props) => {
               </Link>
               </> 
               ) : (
-              <Link className=" riotbar-account-action " to='/login'>Sign  In</Link>
+              <Link className=" riotbar-account-action " to='/signup'>Sign Up</Link>
               )}
             </div>
           </div>

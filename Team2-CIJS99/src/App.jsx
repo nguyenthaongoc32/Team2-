@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from "axios";
+import { Route, Routes } from 'react-router-dom';
+import './App.css'
 
 import Footer from './component/Home/Footer/Footer';
-import './App.css'
-import { Route, Routes } from 'react-router-dom';
 import Accessibility from './component/Home/Footer/Support/Accessibility';
 import Accessories from './component/Home/Footer/Shop/Accessories';
 import Apparel from './component/Home/Footer/Shop//Apparel';

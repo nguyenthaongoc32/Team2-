@@ -30,6 +30,7 @@ import Logout from './component/Auth/Logout/Logout';
 import SearchPage from './component/pages/SearchPage/SearchPage';
 
 function App() {
+    const isInitialMount = useRef(true);
   const [products, setProducts] = useState([]);
   const [productsFilter, setProductsFilter] = useState([]);
   const [cart, setCart] = useState([]);
@@ -62,7 +63,6 @@ function App() {
 
   useEffect(() => {
     handleFetchProducts();
-    console.log("Products", products);
   }, []);
 
   const handleAddToCart = (productId) => {
@@ -119,6 +119,22 @@ function App() {
     setCart([]);
   };
 
+  // Update local storage whenever tasks change
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart]);
+
+  // Load tasks from local storage on app startup
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem("cart"));
+    console.log("storedCart", storedCart);
+    setCart(storedCart);
+  }, []);
+
   const handleSearchProduct = () => {
     if (searchValue === "") {
       setProductsFilter([]);
@@ -139,97 +155,112 @@ function App() {
   };
   return (
     <>
-    <div className='Header'>
-      <Header totalCartItems={cart.length}
-       handleChange={handleChange}
-       onSubmit={handleSubmitForm}
-       value={searchValue}  />
-      <main>
-        <Routes>
-          <Route 
-          path='/shopAll'
-          element={<ShopAll 
-          products={products}
-          handleAddToCart={handleAddToCart}/>}/>
-
-          <Route 
-          path='/League of Legends'
-          element={<League products={products} 
-          handleAddToCart={handleAddToCart}/>}/>
-
-          <Route 
-          path='/valorant'
-          element={<Valorant products={products}
-          handleAddToCart={handleAddToCart}/>}/>
-
-          <Route 
-          path='/Teamfight Tactics'
-          element={<Teamfight products={products}
-          handleAddToCart={handleAddToCart}/>}/>
-
-          <Route 
-          path='/arcane'
-          element={<Arcane products={products}
-          handleAddToCart={handleAddToCart}/>}/>
-
-          <Route 
-          path='/signup'
-          element={<SignUp/>}/>
-
-        <Route 
-          path='/login'
-          element={<Login/>}/>
-
-          <Route 
-          path='/logout'
-          element={<Logout/>}/> 
-
-<Route
-            path="/"
-            element={<HomePage handleAddToCart={handleAddToCart}
-            products={products} />}
-          />
-
-<Route
-            path="/searchpage"
-            element={
-              <SearchPage
-                handleAddToCart={handleAddToCart}
-                productsFilter={productsFilter}
-              />
-            }
-          />
-
-
-          <Route
-            path="/products/:id"
-            element={<ProductDetail handleAddToCart={handleAddToCart} />}
-          />
-
-          <Route
-            path="/checkout"
-            element={
-              <Checkout
-                cart={cart}
-                handleOrder={handleOrder}
-                completedOrder={completedOrder}
-                setCompletedOrder={setCompletedOrder}
-              />
-            }
-          />
-        </Routes>
-        <CartModal
-          cart={cart}
-          updateCartQuantity={updateCartQuantity}
-          handleDeleteProductFromCart={handleDeleteProductFromCart}
-          completedOrder={completedOrder}
-          setCompletedOrder={setCompletedOrder}
+      <div className="Header">
+        <Header
+          totalCartItems={cart.length}
+          handleChange={handleChange}
+          onSubmit={handleSubmitForm}
+          value={searchValue}
         />
-      </main>
+        <main>
+          <Routes>
+            <Route
+              path="/shopAll"
+              element={
+                <ShopAll
+                  products={products}
+                  handleAddToCart={handleAddToCart}
+                />
+              }
+            />
+
+            <Route
+              path="/League of Legends"
+              element={
+                <League products={products} handleAddToCart={handleAddToCart} />
+              }
+            />
+
+            <Route
+              path="/valorant"
+              element={
+                <Valorant
+                  products={products}
+                  handleAddToCart={handleAddToCart}
+                />
+              }
+            />
+
+            <Route
+              path="/Teamfight Tactics"
+              element={
+                <Teamfight
+                  products={products}
+                  handleAddToCart={handleAddToCart}
+                />
+              }
+            />
+
+            <Route
+              path="/arcane"
+              element={
+                <Arcane products={products} handleAddToCart={handleAddToCart} />
+              }
+            />
+
+            <Route path="/signup" element={<SignUp />} />
+
+            <Route path="/login" element={<Login />} />
+
+            <Route path="/logout" element={<Logout />} />
+
+            <Route
+              path="/"
+              element={
+                <HomePage
+                  handleAddToCart={handleAddToCart}
+                  products={products}
+                />
+              }
+            />
+
+            <Route
+              path="/searchpage"
+              element={
+                <SearchPage
+                  handleAddToCart={handleAddToCart}
+                  productsFilter={productsFilter}
+                />
+              }
+            />
+
+            <Route
+              path="/products/:id"
+              element={<ProductDetail handleAddToCart={handleAddToCart} />}
+            />
+
+            <Route
+              path="/checkout"
+              element={
+                <Checkout
+                  cart={cart}
+                  handleOrder={handleOrder}
+                  completedOrder={completedOrder}
+                  setCompletedOrder={setCompletedOrder}
+                />
+              }
+            />
+          </Routes>
+          <CartModal
+            cart={cart}
+            updateCartQuantity={updateCartQuantity}
+            handleDeleteProductFromCart={handleDeleteProductFromCart}
+            completedOrder={completedOrder}
+            setCompletedOrder={setCompletedOrder}
+          />
+        </main>
       </div>
 
-
-      
       <div className="Footer">
         <Routes>
           <Route path="/accessories" element={<Accessories />}></Route>
@@ -254,3 +285,4 @@ function App() {
   );
 }
 export default App
+       

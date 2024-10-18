@@ -14,7 +14,7 @@ function Baner() {
         />
         <Carousel.Caption>
           <button className='caption-button'>
-            <Link className='caption-button-link' to='/league'>Shop Now</Link>
+            <Link className='caption-button-link' to='/League of Legends'>Shop Now</Link>
           </button>
         </Carousel.Caption>
       </Carousel.Item>
@@ -26,7 +26,7 @@ function Baner() {
         />
         <Carousel.Caption>
           <button className='caption-button'>
-            <Link className='caption-button-link' to='/teamfight' >Shop Now</Link>
+            <Link className='caption-button-link' to='/Teamfight Tactics"' >Shop Now</Link>
           </button>
         </Carousel.Caption>
       </Carousel.Item>
